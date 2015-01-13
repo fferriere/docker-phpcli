@@ -23,6 +23,9 @@ RUN useradd --create-home user
 
 USER user
 
-VOLUME ['/var/www']
+VOLUME ["/var/www"]
 WORKDIR /var/www
+
+ENTRYPOINT ["/usr/bin/php"]
+CMD ["-a"]
 
