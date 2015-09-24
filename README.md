@@ -1,17 +1,32 @@
-docker-phpcli
-=============
+# docker-phpcli
 
-Run php-cli anywhere with docker
+This project build and run php cli on a docker container
 
-    cp docker-name.conf.dist docker-name.conf
-    vim docker-name.conf
-    ./build.sh
-    ./php-cli.sh
-    
-That's all
+## Build the container
 
-You can add alias on `.bashrc`
+To build the container run the `./build.sh` script.
 
-    alias php='/your/path/php-cli.sh
-    
+By default the container's image will be named 'fferriere/phpcli'.
+You can change the name with the `FFERRIERE_PHPCLI_IMAGE` variable.
 
+```
+$ FFERRIERE_PHPCLI_IMAGE='my_image' ./build.sh
+```
+
+## Run the container
+
+To run the container run the `./php-cli.sh` script.
+
+By default the script run `php` command with `-a` if there is no argument.
+
+If you have change the image's name, don't forget to fill the `FFERRIERE_PHPCLI_IMAGE` variable.
+```
+$ FFERRIERE_PHPCLI_IMAGE='my_image' ./php-cli.sh
+```
+
+You can use a script with the command below or export the variable on your `.bashrc`.
+
+
+You can add alias on `.bashrc` :
+
+    alias php='/your/path/php-cli.sh'

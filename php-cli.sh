@@ -2,6 +2,10 @@
 
 MY_PATH=$(dirname $(realpath $0))
 
-. $MY_PATH/docker-name.conf
 
-docker run -ti -v $PWD:/var/www $DOCKER_IMAGE_NAME $ARGS
+NAME='fferriere/phpcli'
+if [ -n "$FFERRIERE_PHPCLI_IMAGE" ]; then
+    NAME=$FFERRIERE_PHPCLI_IMAGE
+fi
+
+docker run -ti -v $PWD:/var/www $NAME $@
